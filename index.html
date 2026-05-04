@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bite Bali — kafe — Bali</title>
+  <meta name="description" content="Nikmati suasana hangat dan kopi Bali di Bite Bali, kafe lokal dengan ulasan bintang 4.8 di Badung." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #FFB347;
+      --secondary: #7ACBA4;
+      --background: #FFF8F1;
+      --text: #3A2E2A;
+      --cta: #FF7043;
+      --radius: 12px;
+      --font-heading: 'Quicksand', sans-serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--background);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
+
+    /* ===== NAV ===== */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 248, 241, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 179, 71, 0.2);
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--background);
+      border-bottom: 1px solid rgba(255, 179, 71, 0.2);
+      z-index: 999;
+      padding: 16px 20px 24px;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(58, 46, 42, 0.08);
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--primary); }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .hamburger { display: none; }
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-sn_OOzzMnFnEnY46KDwPIBXBdOK1Ng1QeDYeu17LYZQbNv5oZhY18XXkyVL1Zn-gqVPo-wdbr9bw6Q-aHO6vZOeKYyaCbqQU7LWWyXyk5AENse6dE2NJSpJz-93M6NpMRjb4VMFB2dSUhfkuBhle_uPz94nFNhf2AbcC8flamIXJ_t2av5oZ_hoJR6zC9MQpWxXHXP1BVS46oLo27Dnm9wRqVeo87M4zSjBTu5yim41qzXr2yzoL6bFItxXGfJyTHyzcx0YDfgN9FkfbEZXNY-cax3DzaKVSzg6z1sb-bO6DV2G95rEmPLlwbgko33kEHrRGMtv2x8XTi42z9-tjwX7PkDc6xmHlKIXpCZxRk70YnYSl5SFOF-kViOvJ8mNHZ1eL32ofFbAE5thw6rEhC_nKLCJH02b_dG7fjKeHaVNW8sdr4PQfgCOq4uy_0A&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 24px 20px;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 5vw, 3.8rem);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .hero-content p {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--cta);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 112, 67, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 13px 32px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255,255,255,0.8);
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+      transition: background 0.2s, color 0.2s;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    @media (min-width: 768px) {
+      .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+      .btn-primary, .btn-secondary {
+        width: auto;
+      }
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    section {
+      padding: 48px 16px;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 96px 24px;
+      }
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-headline {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--text);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-divider {
+      width: 56px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+      margin: 0 auto 40px;
+    }
+
+    /* ===== ABOUT ===== */
+    #tentang-kafe {
+      background: #fff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+      }
+    }
+
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      max-height: 380px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .about-text h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      opacity: 0.85;
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .badge {
+      background: rgba(255, 179, 71, 0.12);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 179, 71, 0.3);
+    }
+
+    /* ===== MENU ===== */
+    #menu-unggulan {
+      background: var(--background);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 600px) {
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 1024px) {
+      .menu-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .menu-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(58, 46, 42, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 4px solid var(--primary);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(58, 46, 42, 0.1);
+    }
+
+    .menu-card-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .menu-card h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .menu-card p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text);
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+
+    /* ===== REVIEWS ===== */
+    #testimoni-pelanggan {
+      background: #fff;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .review-card {
+      background: var(--background);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(58, 46, 42, 0.05);
+      position: relative;
+    }
+
+    .review-stars {
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text);
+      opacity: 0.85;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .review-author {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .rating-summary {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .rating-big {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 3.5rem;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .rating-stars-big {
+      color: var(--primary);
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+      margin: 8px 0;
+    }
+
+    .rating-count {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text);
+      opacity: 0.65;
+    }
+
+    /* ===== GALLERY ===== */
+    #galeri-foto {
+      background: var(--background);
+    }
+
+    .gallery-caption {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text);
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ===== HOURS & LOCATION ===== */
+    #lokasi-dan-jam-buka {
+      background: #fff;
+    }
+
+    .hours-location-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .hours-location-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+      }
+    }
+
+    .hours-block h3, .location-block h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid rgba(58, 46, 42, 0.07);
+    }
+
+    .hours-table td {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      padding: 10px 0;
+      color: var(--text);
+    }
+
+    .hours-table td:first-child {
+      font-weight: 600;
+      width: 45%;
+    }
+
+    .hours-table td:last-child {
+      color: var(--text);
+      opacity: 0.75;
+    }
+
+    .today-row td {
+      color: var(--cta) !important;
+      font-weight: 700 !important;
+      opacity: 1 !important;
+    }
+
+    .map-embed {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 280px;
+      box-shadow: 0 4px 20px rgba(58, 46, 42, 0.1);
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .location-info {
+      margin-top: 20px;
+    }
+
+    .location-info p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text);
+      opacity: 0.8;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .location-info a {
+      color: var(--cta);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* ===== CTA SECTION ===== */
+    #ajakan-bergabung {
+      background: linear-gradient(135deg, var(--primary) 0%, #FF8C42 100%);
+      text-align: center;
+    }
+
+    #ajakan-bergabung h2 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    #ajakan-bergabung p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      line-height: 1.7;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-form {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--text);
+      background: rgba(255,255,255,0.95);
+      outline: none;
+      transition: box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-form-submit {
+      background: var(--text);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.85);
+      padding: 48px 16px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 48px;
+      }
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      opacity: 0.75;
+      margin-bottom: 16px;
+    }
+
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 179, 71, 0.15);
+      border: 1px solid rgba(255, 179, 71, 0.3);
+      border-radius: var(--radius);
+      padding: 8px 14px;
+    }
+
+    .rating-badge .stars {
+      color: var(--primary);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .rating-badge .score {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    .rating-badge .count {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col p, .footer-col a {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      line-height: 1.8;
+      opacity: 0.75;
+      display: block;
+    }
+
+    .footer-col a:hover {
+      opacity: 1;
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 32px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      opacity: 0.5;
+    }
+
+    /* ===== TRUST SIGNALS ===== */
+    .trust-bar {
+      background: var(--secondary);
+      padding: 24px 16px;
+    }
+
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .trust-inner { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+
+    .trust-item span:first-child {
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-brand">Bite Bali</a>
+    <ul class="nav-links">
+      <li><a href="#tentang-kafe">Tentang</a></li>
+      <li><a href="#menu-unggulan">Menu</a></li>
+      <li><a href="#testimoni-pelanggan">Ulasan</a></li>
+      <li><a href="#galeri-foto">Galeri</a></li>
+      <li><a href="#lokasi-dan-jam-buka">Lokasi</a></li>
+      <li><a href="#ajakan-bergabung" style="background:var(--cta);color:#fff;padding:8px 18px;border-radius:var(--radius);">Hubungi Kami</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger-btn" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#tentang-kafe" onclick="closeMobileMenu()">Tentang</a>
+    <a href="#menu-unggulan" onclick="closeMobileMenu()">Menu</a>
+    <a href="#testimoni-pelanggan" onclick="closeMobileMenu()">Ulasan</a>
+    <a href="#galeri-foto" onclick="closeMobileMenu()">Galeri</a>
+    <a href="#lokasi-dan-jam-buka" onclick="closeMobileMenu()">Lokasi</a>
+    <a href="#ajakan-bergabung" onclick="closeMobileMenu()">Hubungi Kami</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in">
+      <h1>Nikmati Kopi Bali Terbaik</h1>
+      <p>Kafe lokal dengan suasana hangat dan modern di Bali.</p>
+      <div class="hero-buttons">
+        <a href="#ajakan-bergabung" class="btn-primary">Pesan Sekarang</a>
+        <a href="#menu-unggulan" class="btn-secondary">Lihat Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span>☕</span><span>Kopi Bali Otentik</span></div>
+      <div class="trust-item"><span>🅿️</span><span>Parkir Gratis</span></div>
+      <div class="trust-item"><span>💳</span><span>Pembayaran Nirkontak</span></div>
+      <div class="trust-item"><span>⭐</span><span>Rating 4.8 / 5</span></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="tentang-kafe">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-image fade-in">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-uFIOsNuTBuDL_biMIp9IQLj3NjipN96alHeg4F75MYZpIgERDVIOQzaVZS7UQdr3uvHc7LfIlvk9qr9Zds6BD_rc-xFF95BG6eA60ACPnoVlsgIOaBmOzh-Tvg6tiLhQG2XBqcGlQwRRIm1bYygLLmL7TP7HDuHeClmvadvcGSJ3BWhDB27u2x8xGYfOCDYxQi7sUpuGE1LZVogsbOxGkruCdrHtuQczTpui16Pk2dMKJQ5RNhadv1fxG_NQl8htAL6Sed4WhnTVSEarRAyPCJNufBzNkL1XFw6B7-mgdzsA&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc" alt="Suasana Bite Bali" loading="lazy" />
+        </div>
+        <div class="about-text fade-in">
+          <h2>Tentang Bite Bali</h2>
+          <p>Bite Bali adalah kafe yang menawarkan suasana santai dan ramah di jantung Bali. Kami menyediakan berbagai pilihan kopi dan sarapan yang lezat. Dengan fasilitas seperti parkir gratis dan pembayaran nirkontak, kami memastikan pengalaman Anda nyaman dan menyenangkan. Kami juga bekerja sama dengan petani lokal untuk menghadirkan cita rasa kopi Bali yang otentik.</p>
+          <div class="about-badges">
+            <span class="badge">☕ Kopi Lokal</span>
+            <span class="badge">🌿 Petani Lokal</span>
+            <span class="badge">🅿️ Parkir Gratis</span>
+            <span class="badge">💳 Nirkontak</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu-unggulan">
+    <div class="section-inner">
+      <h2 class="section-headline fade-in">Menu Unggulan Kami</h2>
+      <div class="section-divider fade-in"></div>
+      <div class="menu-grid">
+        <div class="menu-card fade-in">
+          <div class="menu-card-icon">☕</div>
+          <h3>Kopi Bali</h3>
+          <p>Nikmati cita rasa kopi Bali yang otentik.</p>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="menu-card-icon">🍳</div>
+          <h3>Sarapan Spesial</h3>
+          <p>Pilihan sarapan lezat untuk memulai hari Anda.</p>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="menu-card-icon">🍦</div>
+          <h3>Ice Cream Dubai Chewy Cookie</h3>
+          <p>Ice cream yang lembut dan tidak membuat gatal tenggorokan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="testimoni-pelanggan">
+    <div class="section-inner">
+      <h2 class="section-headline fade-in">Apa Kata Pelanggan Kami</h2>
+      <div class="section-divider fade-in"></div>
+      <div class="rating-summary fade-in">
+        <div class="rating-big">4.8</div>
+        <div class="rating-stars-big">★★★★★</div>
+        <div class="rating-count">Berdasarkan 639 ulasan di Google</div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card fade-in">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"bukanya ga sampai malam jadi kami harus spend waktu ksn di pagi atau siang hari, gak banyak seat jg tp waktu kami ksn ga terlalu ramai — pelayanan ramah dan juga gak harus tunggu lama buat ice..."</p>
+          <div class="review-author">— Chandra Manika</div>
+        </div>
+        <div class="review-card fade-in">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Suasana kafe yang nyaman dan hangat. Kopi Bali-nya benar-benar otentik dan lezat. Sangat direkomendasikan untuk dikunjungi saat di Bali!"</p>
+          <div class="review-author">— Pelanggan Setia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="galeri-foto">
+    <div class="section-inner">
+      <h2 class="section-headline fade-in">Galeri Foto</h2>
+      <div class="section-divider fade-in"></div>
+      <p class="gallery-caption fade-in">Lihat suasana hangat dan modern di Bite Bali.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-uFIOsNuTBuDL_biMIp9IQLj3NjipN96alHeg4F75MYZpIgERDVIOQzaVZS7UQdr3uvHc7LfIlvk9qr9Zds6BD_rc-xFF95BG6eA60ACPnoVlsgIOaBmOzh-Tvg6tiLhQG2XBqcGlQwRRIm1bYygLLmL7TP7HDuHeClmvadvcGSJ3BWhDB27u2x8xGYfOCDYxQi7sUpuGE1LZVogsbOxGkruCdrHtuQczTpui16Pk2dMKJQ5RNhadv1fxG_NQl8htAL6Sed4WhnTVSEarRAyPCJNufBzNkL1XFw6B7-mgdzsA&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc" alt="Galeri Bite Bali 1" loading="lazy" />
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-sMmuSyctEvAXgKWp59VO5d3FR5LUIjOXSSMhFYWBjxQXY5Gl6Ua-jLL3xpCHzC4VN5MuAbod5eVVKGVE_QnJPLzzLwBoSB9habRMAUQ3qCogUK_1yecFSBrXmFNsvm4dh4exYsPk9o7IBeh1VU4iQZkhnwq0l9ukr5DNTFy2YeJnsaWFiXUrsdMQpoHpwn1YeozNFlIBruF0FvqCV6rrBoHXA21V-RplE7foGWRse14HEgKDRk2rqDNkO7ogRYBbPPQNXSrNhK9Qe1yJijeqFmecebQzYoEHSLUTQs0s8qBgLFTcUQWtb79o7UjU8I0J2_NGBbKdZTFqthpvm0j-s2q_LLgrpZaXMlW2t9E-J9mn0PPbBv4O5cerWAA-2CuyW1SNqtkw-za2Kcm1xqsdRPM8ykmSMwlygtFGyCgwF2rFoVOiw_SODkEKhAgg&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc" alt="Galeri Bite Bali 2" loading="lazy" />
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-ujv7VwH8rfPSZAZ1cJvLzCIkGlBDh49-QUX59TbU4IyaogBQm3QQw0y-Jegg57ZUZOu-3O9GoHBolWXMUhQHyeXnhT8-gus64Pr93a6mEGtx8m6dLwckJkfxJ63zW2GvXd5IygJ-7J2_fiKmnajNE6f3mVP0L2x-JDReOqk800-TjyI_dzVvf1MKJuxK1l0A-otbfHcsu2Zp2EjKOt_G3ZPMkAi7Zv_e1He-zaebGzuHnHYdHbb2LOtc13O7pVy_du5_pFaiV9UUhtUmccquhOiK5P6bRORsLt-Lz2746fykAMbgIoSluOIjchAsopJAi78P2uBTSURqY4pIktAn_NUzrcjIdbY1s5nqyC7MgjfrNI7i0N2-fZUNeLhK8luTV59W8I9lIBYs0NSZy0gEdSzgyk04F1YMyBQTcZdq02Gw&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc" alt="Galeri Bite Bali 3" loading="lazy" />
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-vfTOzpUzccjBajkqt07yZaABvLdbvtK28L_tX1xZaw4i3TKpuidK_mI8DZulIXyGkS8_V1awPdxYWlVSA1qLHpjcPBxE8ne1dgupYe2eB02dyuZuD7nzvPU7b7WPIS_WdA7CExDcy8sSToF6gg1Bz5B28hMaJlESZVZNxpi90kQNgKX2ZXRXwQ5V8VhOk7XdROos2w6p8LiJvsaZ-TGhxH08ZN3Hb6wHbWE8jmVkBtXjfTD6CaSfA62m1E1-vSM9etOPc1Di5w8sNeRX6UCWPAFyK1o07C3SUWzJD4w3b9L877qNFG9PGZ1oIINhKfIvKkv17kAswgn_WIsxWswrqN78BZbJklWaU4YXgz-bR6N9GKvAW1ZfcBMvnmIYvOc_kAO6Le3gRr0T9e1fwv7E6BmYyqOp_k1WXNZZqNz5lmr86hRgbzT75QSFL_Cg&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc" alt="Galeri Bite Bali 4" loading="lazy" />
+        </div>
+        <div class="gallery-item fade-in">
+          <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photo_reference=Ab43m-sTGFvSX_Q9z0-OE9wRQy0Kx0c6va0EeAxdKjwYir7Ws-ir3LqoCllEkKZme_t8OHxHFtylezU88v-5Dam4yWKzh39gFPHBTXt7HRX0Ivb2cMKvYgssWHsDpokNqV6DAxqtbNeiaQ5msM5mwN6C6b9JTM691YT1ntcpXls1ahcWepAhGlLFu9s0YJ5NOC2q-0BvJQzbKVcuJ2hGn-Qr06RVATEA4wG-FtxWxzkvunxsqrkLIf2rzpFDfQAxQsByq4HKg4DOVrL4uhfEyH-a81wJ996nDuleU6FCB1UlI06g8YaPNeqvb0xyy7oFoBx6OdojfnITAJqjdcjH5niCjmJBvcQ6vK_FchUCPQY7mJbD3xg8EyGu9vzfbHjs290R6WhDy1wso5-pWOmkUjbgQ2Fa_pyodQSILu9oldxW-TCj8qMWSdwyMnjDrIHjEA&key=AIzaSyCd8_Lzx6EPWwnELP47YrOwKzAMK9CV9fc" alt="Galeri Bite Bali 5" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS & LOCATION -->
+  <section id="lokasi-dan-jam-buka">
+    <div class="section-inner">
+      <h2 class="section-headline fade-in">Lokasi dan Jam Buka</h2>
+      <div class="section-divider fade-in"></div>
+      <div class="hours-location-grid">
+        <div class="hours-block fade-in">
+          <h3>🕐 Jam Operasional</h3>
+          <table class="hours-table">
+            <tbody>
+              <tr id="row-monday">
+                <td>Senin</td>
+                <td>08.00 – 19.00</td>
+              </tr>
+              <tr id="row-tuesday">
+                <td>Selasa</td>
+                <td>08.00 – 17.00</td>
+              </tr>
+              <tr id="row-wednesday">
+                <td>Rabu</td>
+                <td>08.00 – 19.00</td>
+              </tr>
+              <tr id="row-thursday">
+                <td>Kamis</td>
+                <td>08.00 – 17.00</td>
+              </tr>
+              <tr id="row-friday">
+                <td>Jumat</td>
+                <td>09.00 – 21.00</td>
+              </tr>
+              <tr id="row-saturday">
+                <td>Sabtu</td>
+                <td>09.00 – 21.00</td>
+              </tr>
+              <tr id="row-sunday">
+                <td>Minggu</td>
+                <td>09.00 – 21.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="location-block fade-in">
+          <h3>📍 Temukan Kami</h3>
+          <div class="map-embed">
+            <iframe
+              src="https://maps.google.com/maps?q=-8.6850866,115.1699991&z=16&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Peta Bite Bali">
+            </iframe>
+          </div>
+          <div class="location-info">
+            <p>📍 Jl. Sunset Road No.808 80361 Badung Regency Indonesia</p>
+            <p>📞 <a href="tel:+628528282551">+62 852-8282-5517</a></p>
+            <p>🗺️ <a href="https://maps.google.com/?q=-8.6850866,115.1699991" target="_blank" rel="noopener">Buka di Google Maps</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="ajakan-bergabung">
+    <div class="section-inner">
+      <h2 class="fade-in">Hubungi Kami</h2>
+      <p class="fade-in">Untuk pertanyaan lebih lanjut, silakan hubungi kami melalui telepon atau kunjungi kafe kami. Kami siap melayani Anda dengan sepenuh hati!</p>
+      <form class="cta-form fade-in" action="#" id="contact-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Nama Anda" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Alamat Email" required />
+        </div>
+        <div class="form-group">
+          <textarea name="message" placeholder="Pesan Anda..." required></textarea>
+        </div>
+        <button type="submit" class="btn-form-submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Bite Bali</h3>
+        <p>Kafe lokal dengan suasana hangat dan modern di Bali. Nikmati kopi Bali terbaik bersama kami.</p>
+        <div class="rating-badge">
+          <span class="stars">★★★★★</span>
+          <span class="score">4.8</span>
+          <span class="count">639 ulasan</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <a href="#tentang-kafe">Tentang Kami</a>
+        <a href="#menu-unggulan">Menu Unggulan</a>
+        <a href="#testimoni-pelanggan">Ulasan</a>
+        <a href="#galeri-foto">Galeri</a>
+        <a href="#lokasi-dan-jam-buka">Lokasi</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <p>Jl. Sunset Road No.808<br />80361 Badung Regency<br />Indonesia</p>
+        <a href="tel:+628528282551" style="margin-top:8px;">+62 852-8282-5517</a>
+        <a href="https://maps.google.com/?q=-8.6850866,115.1699991" target="_blank" rel="noopener" style="margin-top:8px;">Lihat di Google Maps</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Bite Bali. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburgerBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // Highlight today's hours
+    (function() {
+      const days = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+      const today = days[new Date().getDay()];
+      const row = document.getElementById('row-' + today);
+      if (row) row.classList.add('today-row');
+    })();
+
+    // Intersection Observer for fade-in
+    (function() {
+      const elements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      elements.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // Sticky nav shadow on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 10) {
+        navbar.style.boxShadow = '0 2px 16px rgba(58,46,42,0.1)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+    });
+  </script>
+
+  <script>
+    (function() {
+      // Inject modal HTML
+      const modal = document.createElement('div');
+      modal.id = 'purchase-modal';
+      modal.style.cssText = 'display:none;position:fixed;inset:0;'
+        + 'background:rgba(0,0,0,0.72);z-index:9999;'
+        + 'align-items:center;justify-content:center;';
+      modal.innerHTML = `
+        <div style="background:white;border-radius:var(--radius);
+          padding:32px;width:90%;max-width:420px;position:relative;
+          animation:fadeIn 0.2s ease;">
+          <button id="modal-dismiss" style="position:absolute;top:16px;
+            right:16px;background:none;border:none;font-size:1.4rem;
+            color:#888;cursor:pointer;line-height:1;">×</button>
+          <h3 id="modal-title" style="font-family:var(--font-heading);
+            font-size:1.3rem;font-weight:700;color:var(--primary);
+            margin-bottom:12px;">Website Ini Bisa Jadi Milik Anda! 🚀</h3>
+          <p id="modal-body" style="font-family:var(--font-body);
+            font-size:0.95rem;color:var(--text);line-height:1.6;
+            margin-bottom:24px;">Formulir ini akan aktif setelah pembelian. Dapatkan website profesional seperti ini untuk bisnis Anda — lengkap dengan halaman kontak, galeri, menu, dan integrasi Google Maps. Tim kami siap membantu Anda tampil online dengan percaya diri!</p>
+          <button id="modal-cta-buy" style="background:var(--cta);
+            color:white;width:100%;padding:14px;
+            font-family:var(--font-heading);font-weight:700;
+            border-radius:var(--radius);border:none;cursor:pointer;
+            margin-bottom:10px;display:block;font-size:1rem;">
+            Saya Mau Website Ini!</button>
+          <a id="modal-cta-sales"
+            href="mailto:team@kamkod.com?subject=Website%20Bite%20Bali%20%E2%80%94%20ChIJYzwSaR9H0i0RvMi8FGgwRZ8"
+            target="_blank"
+            style="background:transparent;border:2px solid var(--primary);
+            color:var(--primary);width:100%;padding:12px;
+            font-family:var(--font-heading);font-weight:600;
+            border-radius:var(--radius);cursor:pointer;display:block;
+            text-align:center;text-decoration:none;font-size:0.95rem;">
+            Bicara dengan Tim Sales</a>
+        </div>`;
+      document.body.appendChild(modal);
+
+      // Show/hide logic
+      function showModal() {
+        modal.style.display = 'flex';
+      }
+      function hideModal() {
+        modal.style.display = 'none';
+        const btn = document.getElementById('modal-cta-buy');
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      }
+
+      document.getElementById('modal-dismiss')
+        .addEventListener('click', hideModal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) hideModal();
+      });
+
+      // Form submit
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          showModal();
+        });
+      }
+
+      // Button 1 — webhook + loading state
+      document.getElementById('modal-cta-buy')
+        .addEventListener('click', async function() {
+          const btn = document.getElementById('modal-cta-buy');
+          const originalText = btn.textContent.trim();
+
+          btn.disabled = true;
+          btn.style.opacity = '0.75';
+          btn.innerHTML = '<span style="display:inline-flex;align-items:center;'
+            + 'gap:8px;justify-content:center;width:100%">'
+            + '<span style="width:16px;height:16px;border:2px solid '
+            + 'rgba(255,255,255,0.4);border-top-color:white;border-radius:50%;'
+            + 'display:inline-block;animation:spin 0.7s linear infinite">'
+            + '</span><span>Memproses...</span></span>';
+
+          try {
+            const res = await fetch('https://hook.eu1.make.com/jw5r2h7rgemanpjuplbn6qkvu68eh2dl', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                place_id: 'ChIJYzwSaR9H0i0RvMi8FGgwRZ8',
+                business_name: 'Bite Bali',
+                source: 'modal_cta'
+              })
+            });
+            const data = await res.json();
+            if (data.url) window.open(data.url, '_blank');
+          } catch(e) {
+            window.open('https://hook.eu1.make.com/jw5r2h7rgemanpjuplbn6qkvu68eh2dl', '_blank');
+          } finally {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.textContent = originalText;
+          }
+        });
+    })();
+  </script>
+
+</body>
+</html>
